@@ -2,6 +2,28 @@
 
 Le but de cette activité est de se familiariser avec un projet Spring boot en implémentant une entité JPA « Patient » et les opérations CRUD pour la manipuler, tout en utilisant la technique ORM ou le Mapping relationnel objet.
 
+### Travail à faire ###
+
+Vidéo à utiliser comme ressource principale : https://www.youtube.com/watch?v=KKw2u_5nW7k
+1. Installer IntelliJ Ultimate.
+2. Créer un projet Spring Initializer avec les dépendances JPA, H2, Spring Web et Lombok.
+3. Créer l'entité JPA Patient ayant les attributs :
+       - id de type Long,
+       - nom de type String,
+       - dateNaissanec de type Date,
+       - malade de type boolean,
+       - score de type int.
+4. Configurer l'unité de persistance dans le ficher application.properties.
+5. Créer l'interface JPA Repository basée sur Spring data.
+6. Tester quelques opérations de gestion de patients :
+    - Ajouter des patients
+    - Consulter tous les patients
+    - Consulter un patient
+    - Chercher des patients
+    - Mettre à jour un patient 
+    - supprimer un patient
+7. Migrer de H2 Database vers MySQL
+
 ### Présentation du Spring Boot ###  
 Spring Boot est un framework open source pour le développement d'applications Java. Il fournit un cadre prêt à l'emploi pour créer des applications et des services Web en utilisant la configuration plutôt qu'une approche programmatique. 
 Spring Boot aide à créer des applications qui ne sont pas liées à une plate-forme spécifique et qui peuvent s'exécuter localement sur un appareil sans connexion Internet ou autres services installés pour être fonctionnelles.
