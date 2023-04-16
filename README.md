@@ -28,6 +28,8 @@ Vidéo à utiliser comme ressource principale : https://www.youtube.com/watch?v=
 Spring Boot est un framework open source pour le développement d'applications Java. Il fournit un cadre prêt à l'emploi pour créer des applications et des services Web en utilisant la configuration plutôt qu'une approche programmatique. 
 Spring Boot aide à créer des applications qui ne sont pas liées à une plate-forme spécifique et qui peuvent s'exécuter localement sur un appareil sans connexion Internet ou autres services installés pour être fonctionnelles.
 
+![image](https://user-images.githubusercontent.com/60039200/232336407-9086d231-984c-4478-a695-23f39021096b.png)
+
 ### La configuration du projet ### 
 - SDK : 1.8 Oracle OpenJDK version 18.0.2
 - Java : 17
