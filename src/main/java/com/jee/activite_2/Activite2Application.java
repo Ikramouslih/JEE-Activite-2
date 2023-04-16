@@ -37,6 +37,7 @@ public class Activite2Application implements CommandLineRunner {
         //Getting the list of patients from the DB
        List<Patient> patients =  patientRepository.findAll();
 
+       System.out.println("The initial list of patients : ");
        //Printing the patients' info
        patients.forEach(p->{
            System.out.println("-------------------");
@@ -49,6 +50,7 @@ public class Activite2Application implements CommandLineRunner {
 
         //Getting a patient by Id and printing his/her info
         Patient patient = patientRepository.findById(1L).orElseThrow(()->new RuntimeException("Patient Not Found."));
+        System.out.println("The patient with the id N° 1 : ");
         System.out.println("********* Before Update *********");
         if(patient != null)
         {
@@ -76,7 +78,7 @@ public class Activite2Application implements CommandLineRunner {
         //Delete all patients
         patientRepository.deleteAll();
 
-        System.out.println("********* New List *********");
+        System.out.println("********* List with pagination *********");
 
     //Pagination
 
@@ -103,31 +105,33 @@ public class Activite2Application implements CommandLineRunner {
         //Printing the patients' info from the page
         content.forEach(p->{
             System.out.println("-------------------");
-            System.out.println(p.getId());
+            System.out.println("Patient N° " + p.getId());
             System.out.println(p.getNom());
             System.out.println(p.getDateNaissance());
-            System.out.println(p.isMalade());
-            System.out.println(p.getScore());
+            System.out.println("Sick : " +p.isMalade());
+            System.out.println("Score : "+p.getScore());
         });
 
         System.out.println("********* Using custom Spring data methods : findByMalade() *********");
+        System.out.println("********* List of patients who are sick *********");
 
     //Using our custom function that we defined by its name in PatientRepository
         Page<Patient> byMalade = patientRepository.findByMalade(true, PageRequest.of(0,4));
         System.out.println("Page Number : " + byMalade.getNumber());
         byMalade.forEach(m->{
             System.out.println("-------------------");
-            System.out.println(m.getId());
+            System.out.println("Patient N° " + m.getId());
             System.out.println(m.getNom());
             System.out.println(m.getDateNaissance());
-            System.out.println(m.isMalade());
-            System.out.println(m.getScore());
+            System.out.println("Sick : " +m.isMalade());
+            System.out.println("Score : "+m.getScore());
         });
 
     //Using our custom function that we defined by an HQL request in PatientRepository
 
         List<Patient> patientList = patientRepository.chercherPatients2("%1%", 40);
-        System.out.println("********* Testing a custom HQL methods : chercherPatients2() *********");
+        System.out.println("********* Testing a custom HQL method : chercherPatients2() *********");
+        System.out.println("List of patients who have the character \"1\" in their name and have a lesser score than 40 :");
         patientList.forEach(m->{
             System.out.println(m.getId());
             System.out.println(m.getNom());
