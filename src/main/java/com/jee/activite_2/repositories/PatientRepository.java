@@ -29,6 +29,6 @@ public interface PatientRepository extends JpaRepository<Patient,Long> {
 
     //another example
     @Query("select p from Patient p where p.nom like :x and p.score < :y")
-    List<Patient> chercherPatients2(@Param("x") String nom, @Param("y") int scoreMin);
+    List<Patient> chercherPatients2(@Param("x") String nom, @Param("y") int scoreMax);
 
 }
